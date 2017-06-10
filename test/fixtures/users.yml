@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  profileImage: MyString
+  lat: 1.5
+  long: 1.5
+  settings: false
+  followees: 1
+  followers: 1
+
+two:
+  email: MyString
+  profileImage: MyString
+  lat: 1.5
+  long: 1.5
+  settings: false
+  followees: 1
+  followers: 1

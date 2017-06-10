@@ -1,0 +1,53 @@
+<% if current_user %>
+<div class="row">
+   <div class="uploadform z-depth-1">
+  <%= form_for @post , url: 'create_post_remote',id: 'myForm', html: { multipart: true } , remote: true do |f| %>
+  <div class="textinput"><%= f.text_field :content , placeholder: "New Post" , id: "text_field" , required: true%></div>
+  <div class="upload">
+  <span class="btn btn-warning btn-file">
+    <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
+  <%= f.file_field :image  , accept: 'image/png,image/gif,image/jpeg' , id: "file_field" %>
+  </span>
+  <div class="myBtn"><%= submit_tag 'post', :class =>"waves-effect waves-light btn" %></div>
+  <%end%>
+  </div>
+<!--    <div>
+ 	<%= form_for @post , url: 'create_post_remote', html: { multipart: true } , remote: true do |f| %>
+	<div class="textinput"> <%= f.text_field :content , placeholder: "New Post" , id: "text_field" , required: true %></div>
+	</div>
+	<div class="uploadfile">
+	<span class="btn btn-warning btn-file">
+    <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
+    <%= f.file_field :image  , accept: 'image/png,image/gif,image/jpeg' , id: "file_field" %>
+  </span>
+	<%= submit_tag 'post' %>
+	<% end %>
+	</div> -->
+	</div> 
+	<div class = "posts" id="posts">
+	<% @posts.each do |post| %>
+  <%= render 'post' , :post => post %>
+  <%end%>
+  </div>
+</div>
+<footer class="page-footer blue z-depth-4">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">CrowdCircle</h5>
+                <p class="grey-text text-lighten-4">Prince & Kunal</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            &copy; 2015 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!">Terms</a>
+            </div>
+          </div>
+</footer>
+<%end%>
+
+

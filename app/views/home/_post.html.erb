@@ -1,0 +1,24 @@
+<%if post %>  
+    <div class="col s12 m7">
+        <div class="card z-depth-2">
+          <% if post.image.present? %>
+            <div class="card-image">
+              <%= image_tag post.image.url(:medium)  %> 
+            </div>
+            <%end%>
+            <div class="card-content">
+              <p><%= post.content %></p>
+            </div>
+            <div class="card-action">
+                 <% if post.likes.where(user_id: current_user.id).length > 0 %>
+                    <%= link_to "UnLike", url_for(controller: :home, action: :like_remote, post_id: post.id), method: :post, id: "post_#{post.id}" , remote: true %>
+                 <% else %>
+                    <%= link_to "Like", url_for(controller: :home, action: :like_remote, post_id: post.id), method: :post, id: "post_#{post.id}" , remote: true %>
+                 <% end %>
+                 <%= link_to "comment", url_for(controller: :home , action: :comment_remote , post_id: post.id) , method: :post , remote: true %>
+            </div>
+<%end%> 
+      <div id="comment<%= post.id %>">
+     </div>
+    </div>
+</div>   

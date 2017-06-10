@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin Slab">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <title>Crowdcircle</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if current_user %>
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "One"%></li>
+   <li><%= link_to "Two"%></li>
+  <li class="divider"></li>
+  <li><%= link_to "Logout" , signout_path , id: "sign_out"%></li>
+</ul>
+<header class="z-depth-3">
+  <div class="actions">
+    <%= link_to raw('<i class="fa fa-home fa-2x" aria-hidden="true"></i>'), '/' %>
+  </div>
+  <div class="brand-logo"><a href="#!"><p>CrowdCircle</p></a></div>
+  <ul class="right hide-on-med-and-down">
+  <li id="userDetails">
+   <% if current_user.profileImage%>
+      <div class="profile_pic"><a href="/profile"><img src="/images/<%= current_user.profileImage %>"></a></div>
+   <%else%>
+      <div class="profile_pic"><a href="/profile"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a></div>
+   <%end%>
+  </li>
+  <li><a class="dropdown-button down" href="#!" data-activates="dropdown1"><i class="material-icons down">       
+     arrow_drop_down</i></a></li>
+  </ul>
+</header>
+
+
+
+<!-- <ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "One"%></li>
+   <li><%= link_to "Two"%></li>
+  <li class="divider"></li>
+  <li><%= link_to "Logout" , signout_path , id: "sign_out"%></li>
+</ul>
+<header class="z-depth-3">
+  <div class="actions">
+    <%= link_to raw('<i class="fa fa-home fa-2x" aria-hidden="true"></i>'), '/' %>
+  </div>
+  <div class="brand-logo"><a href="#!"><p>CrowdCircle</p></a></div>
+  <ul class="right hide-on-med-and-down">
+  <li id="userDetails">
+   <% if current_user.profileImage%>
+      <div class="profile_pic"><a href="/profile"><img src="/images/<%= current_user.profileImage %>"></a></div>
+   <%else%>
+      <div class="profile_pic"><a href="/profile"><img src="/images/profile.png" ></a></div>
+   <%end%>
+  </li>
+  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">       
+     arrow_drop_down</i></a></li>
+  </ul>
+</header>
+ -->
+
+
+
+<!-- <ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to "One"%></li>
+   <li><%= link_to "Two"%></li>
+  <li class="divider"></li>
+  <li><%= link_to "Logout" , signout_path , id: "sign_out"%></li>
+</ul>
+<nav>
+  <div class="nav-wrapper fixed">
+    <a href="#!" class="brand-logo">CrowdCircle</a>
+    <ul class="right hide-on-med-and-down">
+       <li><%= link_to "Home" , '/'%></li>
+       <li><%= link_to image_tag("profile.png" ,  size: "30x40") , url_for(controller: :home , action: :profile)%>
+       </li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav> -->
+<div class = "container">
+<%= yield %>
+</div>
+<% else %>
+
+    <%= render 'auth' %>
+
+<% end %>
+
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js">
+</script>
+</body>
+</html>

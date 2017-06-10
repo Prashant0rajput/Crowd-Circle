@@ -1,0 +1,118 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+main {
+	padding-top: 64px;
+	padding-bottom: 300px;
+	
+	.jumbo {
+		width: 100%;
+		height: 400px;
+		background: url(https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/12011375_1624249661175015_4602455729079153695_n.jpg?oh=aee489602a9823dca9e9e8789c984e78&oe=59A66F00) center center no-repeat;
+		background-size: cover;
+	}
+	
+	.icons {
+		display: flex;
+		justify-content: space-between;
+		
+		.big-icon {
+			width: 180px;
+			height: 180px;
+			background: url(https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/18034352_1867803133486332_6914333202941651703_n.jpg?oh=9b673d6d4760ecf9fa7826b9d21a82e2&oe=59E46428) center top;
+			background-size: 140%;
+			border-radius: 50%;
+			border: 2px solid white;
+			margin-top: -90px;
+		}
+		
+		.rate {
+			width: 125px;
+			display: flex;
+			justify-content: space-between;
+			order: -1;
+			
+			.star-btn {
+				margin-top: -27.5px;
+				
+				i {
+					font-size: 26px;
+				}
+			}
+			
+			.like-btn {
+				margin-top: -27.5px;
+				
+				i {
+					font-size: 22px;
+				}
+			}
+		}
+		
+		.add {
+			width: 125px;
+			display: flex;
+			justify-content: flex-end;
+			
+			.add-btn {
+				margin-top: -27.5px;
+				
+				i {
+					font-size: 28px;
+				}
+			}
+		}
+	}
+	
+	.details {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 50px;
+		
+		h3 {
+			color: #212121;
+			font-size: 28px;
+			margin-top: 15px;
+		}
+		
+		p {
+			color: #727272;
+			margin-top: 0px;
+		}
+	}
+	
+}
+
+@media screen and (max-width: 600px) {
+	
+	main {
+		padding-top: 40px;	
+	}
+	
+	.jumbo {
+		height: 200px !important;
+	}
+	
+	.icons {
+		justify-content: center !important;
+	}
+	
+	.rate {
+		display: none !important;
+	}
+	
+	.add {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	
+	.fab {
+		display: none;
+	}
+}
