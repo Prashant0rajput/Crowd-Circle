@@ -1,6 +1,15 @@
 <%if post %>  
+<div class="row">
     <div class="col s12 m7">
         <div class="card z-depth-2">
+        <div class="card-action">
+        <a href ="profile/<%= user.id %>" >
+        <div class="profile_pic">
+       <%= image_tag user.profileImage %>
+        </div>
+        <p><%= user.name %></p>
+        </a>
+        </div>
           <% if post.image.present? %>
             <div class="card-image">
               <%= image_tag post.image.url(:medium)  %> 
@@ -18,7 +27,9 @@
                  <%= link_to "comment", url_for(controller: :home , action: :comment_remote , post_id: post.id) , method: :post , remote: true %>
             </div>
 <%end%> 
+
       <div id="comment<%= post.id %>">
      </div>
     </div>
 </div>   
+</div>

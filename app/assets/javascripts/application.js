@@ -15,10 +15,9 @@
 //= require jquery.remotipart
 //= require turbolinks
 //= require_tree .
-//= require jquery
-//= require turbolinks
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+
 
 
 
@@ -29,9 +28,45 @@ $(document).ready(function(){
       $('.materialboxed').materialbox();
       $('.slider').slider();
       $('.slides').height(500);
-      $('.slider').indicators(false);
       $('.slider').height(525);
       $('#myBtn').on('click', function() { $('#myForm').submit(); });
+    
+
+
+            var file_field = document.getElementById("file_field");
+            $("#file_field").change(function (){
+                  
+                 
+                  var div = document.getElementById("showImage");
+                  var aTag = document.getElementById("deleteImage");
+                  if(div.hasChildNodes()){
+                        div.removeChild(div.childNodes[0]);
+                  }
+                   var elem = document.createElement("img");
+                  var reader = new FileReader();
+                    reader.onload = function (e) {
+            // get loaded data and render thumbnail.
+            elem.src = e.target.result;
+            elem.setAttribute("width",75);
+            elem.setAttribute("height",75);
+            div.appendChild(elem);
+            aTag.style.display = "block";
+        };
+
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+
+            });
+
+            $("#deleteImage").on('click' , function (){
+                        $("#deleteImage").css('display','none');
+                        var div = document.getElementById("showImage");
+                        if(div.hasChildNodes()){
+                        div.removeChild(div.childNodes[0]);
+                  }
+            });
+
+
     });
 
 

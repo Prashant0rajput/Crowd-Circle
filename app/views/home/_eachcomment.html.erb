@@ -1,2 +1,7 @@
-<p><%= comment.user_id %></p><br>
-<p><%= comment.content %></p><br>
+<div class="card-content">
+ <div class="profile_pic">
+  <%= image_tag User.find(comment.user_id).profileImage %>
+ </div>
+<p><%= User.find(comment.user_id).name %></p>
+<p><%= comment.content %></p>
+</div>

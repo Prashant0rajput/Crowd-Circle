@@ -1,1 +1,7 @@
-$('#'+'comment'+ <%= @post.id %>).html("<%= escape_javascript(render :partial => 'comment') %>");
+if ($('#eachComment'+<%= @post.id %>).css('visibility') === 'visible'){
+		$('#eachComment'+<%= @post.id %>).hide();
+		$('#eachComment'+<%= @post.id %>).css('visibility','hidden');
+}else{
+	$('#eachComment'+<%= @post.id %>).css('visibility','visible');
+	$('#'+'comment'+ <%= @post.id %>).html("<%= escape_javascript(render :partial => 'comment') %>");	
+}

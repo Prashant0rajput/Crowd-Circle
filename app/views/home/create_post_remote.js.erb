@@ -1,3 +1,10 @@
-$("#posts").prepend("<%= escape_javascript(render 'post', :post => @post) %>");
+$("#posts").prepend("<%= escape_javascript(render 'post', :post => @post , :user => @user) %>");
 $("#text_field").val("");
 $("#file_field").val(null);
+
+     var div = document.getElementById("showImage");
+                  if(div.hasChildNodes()){
+                        div.removeChild(div.childNodes[0]);
+                  }
+
+       $("#deleteImage").css('display','none');

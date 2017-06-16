@@ -1,0 +1,6 @@
+
+if($('#follow_'+<%= @followee_id %>).text()==='follow'){
+	$('#follow_'+<%= @followee_id %>).text("unfollow");
+}else{
+	$('#follow_'+<%= @followee_id %>).text("follow");
+}

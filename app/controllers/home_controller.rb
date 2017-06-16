@@ -2,11 +2,15 @@ class HomeController < ApplicationController
   def index
   	@post = Post.new
   	@posts = Post.all.order(created_at: :desc)
+    if current_user
+    @users = User.where.not(id: current_user.id)
+  end
   end
 
 
   def create_post_remote
       @post = current_user.posts.create(post_params)
+      @user = User.find(@post.user_id)
   		respond_to do |format|
       format.js{
           
@@ -20,12 +24,12 @@ class HomeController < ApplicationController
 
 
   def like_remote
-    @post_id = params[:post_id]
-    like = current_user.likes.where(post_id: @post_id).first
+    @post_id_like = params[:post_id]
+    like = current_user.likes.where(post_id: @post_id_like).first
     if like
       like.destroy
     else
-      current_user.likes.create(post_id: @post_id)
+      current_user.likes.create(post_id: @post_id_like)
     end
     respond_to do |format|
       format.js
@@ -53,7 +57,7 @@ class HomeController < ApplicationController
 
   def follow_remote
    @followee_id = params[:followee_id]
-   follow = FollowMapping.where(follower_id: current_user.id , followee_id: @followee_id)
+   follow = FollowMapping.where(follower_id: current_user.id , followee_id: @followee_id).first
    if follow
      follow.destroy
    else
@@ -99,5 +103,9 @@ class HomeController < ApplicationController
     format.js
     end     
   end 
+
+  def profile
+      @user = User.find(params[:id])
+  end
 
 end

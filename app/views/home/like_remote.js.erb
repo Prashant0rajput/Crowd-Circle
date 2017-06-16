@@ -1,1 +1,6 @@
-<%= escape_javascript(render 'post') %>
+
+if($('#post_'+<%= @post_id_like %>).text()==='Like'){
+	$('#post_'+<%= @post_id_like %>).text("Unlike");
+}else{
+	$('#post_'+<%= @post_id_like %>).text("Like");
+}

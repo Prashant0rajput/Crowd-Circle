@@ -1,1 +1,2 @@
 $("#comments"+<%= @post_id %>).prepend("<%= escape_javascript(render 'eachcomment', :comment => @comment) %>");
+$("#text_field_comment").val("");

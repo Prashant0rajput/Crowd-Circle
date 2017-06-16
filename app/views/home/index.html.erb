@@ -1,5 +1,6 @@
 <% if current_user %>
 <div class="row">
+<div class = "col s10">
    <div class="uploadform z-depth-1">
   <%= form_for @post , url: 'create_post_remote',id: 'myForm', html: { multipart: true } , remote: true do |f| %>
   <div class="textinput"><%= f.text_field :content , placeholder: "New Post" , id: "text_field" , required: true%></div>
@@ -11,25 +12,36 @@
   <div class="myBtn"><%= submit_tag 'post', :class =>"waves-effect waves-light btn" %></div>
   <%end%>
   </div>
-<!--    <div>
- 	<%= form_for @post , url: 'create_post_remote', html: { multipart: true } , remote: true do |f| %>
-	<div class="textinput"> <%= f.text_field :content , placeholder: "New Post" , id: "text_field" , required: true %></div>
-	</div>
-	<div class="uploadfile">
-	<span class="btn btn-warning btn-file">
-    <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
-    <%= f.file_field :image  , accept: 'image/png,image/gif,image/jpeg' , id: "file_field" %>
-  </span>
-	<%= submit_tag 'post' %>
-	<% end %>
-	</div> -->
+  <div  class ="container">
+  <div class ="card-image" id="showImage">
+  </div>
+  <a class="btn-floating btn-large waves-effect waves-light red" id="deleteImage" style = "display: none"><i class="material-icons">delete</i></a>
+  </div>
 	</div> 
 	<div class = "posts" id="posts">
 	<% @posts.each do |post| %>
-  <%= render 'post' , :post => post %>
+  <%= render 'post' , :post => post , :user => User.find(post.user_id) %>
   <%end%>
   </div>
-</div>
+  </div>
+  <div class = "col s2">
+      <% @users.each do |user| %>
+        <div class="card-action">
+        <a href ="profile/<%= user.id %>" >
+        <div class="profile_pic">
+       <%= image_tag user.profileImage %>
+        </div>
+        <p style="color: black"><%= user.name %></p>
+        </a>
+        <% if  FollowMapping.where(follower_id: current_user.id , followee_id: user.id).length > 0  %>
+        <%= link_to "unfollow" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true , :style => 'color: red;' %>
+        <% else %>
+        <%= link_to "follow" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true  , :style => 'color: red;' %>
+        <% end %>
+        </div>
+      <%end%>
+  </div>
+  </div>
 <footer class="page-footer blue z-depth-4">
           <div class="container">
             <div class="row">
