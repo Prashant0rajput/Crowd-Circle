@@ -9,4 +9,7 @@ skip_before_filter :verify_authenticity_token
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def render_not_found
+  	render 'layouts/page_not_found' , :status => 404
+  end
 end
