@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get '/' => 'home#index'
-  get '/profile/:id' => "home#profile"
+  get '/profile/:username/:id' => "home#profile"
 
   post '/create_post_remote' => "home#create_post_remote"
   post '/comment_remote' => "home#comment_remote"

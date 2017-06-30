@@ -105,7 +105,9 @@ class HomeController < ApplicationController
   end 
 
   def profile
-      @user = User.find(params[:id])
+      @user = User.find_by_name_and_id(params[:username],params[:id])
+      @users = User.where.not(id: current_user.id)
+
   end
 
 end

@@ -18,16 +18,22 @@
 @import "materialize/extras/nouislider";
 @import "font-awesome";
 
+*{
+	margin:0px;
+	padding:0px;
+}
+
 body{
 	background-color:#fafafb;
 }
 
-
+.globalcontainer{
+	display: flex;
+}
 header {
   position: fixed;
   z-index: 1000;
   background-color: rgba(33,150,243,0.90);
-  padding: 8px;
   width: 100%;
   height: 65px;
   top: 0;
@@ -44,12 +50,29 @@ header {
 }
 .profile_pic{
 	margin-right:5px;
+	display:flex;
+	align-items:center;
 }
 .profile_pic img{
 	width:40px;
 	border-radius:100%;
 }
-
+.follow_pic{
+	display:flex;
+}
+.follow_pic img{
+	width:40px;
+	border-radius:100%;
+}
+.container1{
+    width: 17%;
+    margin-left:2px;
+    margin-top:65px;
+	border:1px solid #e9e9f3;
+	height:588px;
+	position:fixed;
+	left:83%;
+}
 .right{
 	display:flex;
 }
@@ -169,13 +192,16 @@ a{
 	display:flex;
 	justify-content:space-between;
 }
-
+.btn{
+	text-decoration:none;
+}
 .uploadform{
-    margin-left:9px;
+    background-color:white;
+    margin-left:0px;
     border:1px solid #e9e9f3;
     border-radius:4px;
-	margin-top:100px;
-	width:56.4%;
+	margin-top:73px;
+	width:65.6%;
 	display:flex;
 	flex-direction:column;
 }
@@ -216,9 +242,52 @@ span{
 .upload{
 	display:flex;
 }
+.card .card-content{
+	padding:8px;
+}
 
+.card .card-action{
+	padding:8px;
+	margin:0px;
+}
 
+#follow-name{
+	font-family: Nunito;
+	font-size:16px;
+	color:rgb(97,97,97);
+}
+#postname{
+	color:black;
+	font-family: Nunito;
+}
+input#text_field_comment{
+	margin:0px;
+}
+span.comment-user{
+    margin:0px 5px 0px 0px;
+	font-family: Nunito;
+}
+span.comment-content{
+    padding:3px opx 3px 8px;
+	font-family:Open Sans;
+	font-size:12px;
+	color:rgb(97,97,97);
+}
 
+.card .card-action{
+	padding:0px;
+}
+.card-action a{
+	padding:12px 0px 12px 8px;
+}
+.Follow .card-action{
+	height:50px;
+}
+.card-content p{
+    padding-top:15px;
+	padding-bottom:15px;
+} 
 
-
-
+.card .card-content{
+	padding: 0px 0px 3px 8px;
+}

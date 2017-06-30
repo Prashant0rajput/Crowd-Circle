@@ -1,4 +1,6 @@
 <% if current_user %>
+<div class="globalcontainer">
+<div class = "container">
 <div class="row">
 <div class = "col s10">
    <div class="uploadform z-depth-1">
@@ -24,24 +26,29 @@
   <%end%>
   </div>
   </div>
-  <div class = "col s2">
+</div>
+</div>
+<div class = "container1 z-depth-2">
+ <div class="Follow">
       <% @users.each do |user| %>
         <div class="card-action">
-        <a href ="profile/<%= user.id %>" >
+        <a href ="profile/<%= user.name %>/<%= user.id%>" >
         <div class="profile_pic">
-       <%= image_tag user.profileImage %>
+        <span><%= image_tag user.profileImage %></span>
+       <span id="follow-name"><%= user.name %></span>
         </div>
-        <p style="color: black"><%= user.name %></p>
         </a>
-        <% if  FollowMapping.where(follower_id: current_user.id , followee_id: user.id).length > 0  %>
+<!--         <% if  FollowMapping.where(follower_id: current_user.id , followee_id: user.id).length > 0  %>
         <%= link_to "unfollow" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true , :style => 'color: red;' %>
         <% else %>
         <%= link_to "follow" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true  , :style => 'color: red;' %>
-        <% end %>
+        <% end %> -->
         </div>
       <%end%>
-  </div>
-  </div>
+  </div> 
+</div>
+</div>
+ <div class = "container"> 
 <footer class="page-footer blue z-depth-4">
           <div class="container">
             <div class="row">
@@ -55,11 +62,12 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            &copy; 2015 Copyright
+            &copy; 2017 Copyright
             <a class="grey-text text-lighten-4 right" href="#!">Terms</a>
             </div>
           </div>
 </footer>
 <%end%>
+</div>
 
 

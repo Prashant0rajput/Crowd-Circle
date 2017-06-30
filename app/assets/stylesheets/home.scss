@@ -8,10 +8,9 @@ main {
 	padding-top: 64px;
 	padding-bottom: 300px;
 	
-	.jumbo {
+	.jumbo img{
 		width: 100%;
 		height: 400px;
-		background: url(https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/12011375_1624249661175015_4602455729079153695_n.jpg?oh=aee489602a9823dca9e9e8789c984e78&oe=59A66F00) center center no-repeat;
 		background-size: cover;
 	}
 	
@@ -19,7 +18,7 @@ main {
 		display: flex;
 		justify-content: space-between;
 		
-		.big-icon {
+		.big-icon img{
 			width: 180px;
 			height: 180px;
 			background-size: 140%;
@@ -85,6 +84,7 @@ main {
 	}
 	
 }
+
 
 @media screen and (max-width: 600px) {
 	

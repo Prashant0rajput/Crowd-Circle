@@ -1,17 +1,14 @@
 
 <div id="eachComment<%= @post.id %>">
-<div>	
-	<%= form_tag url_for(controller: 'home', action: 'create_comment_remote' , post_id: @post.id),  html: { multipart: true } , remote: true  do %>
-	<%= text_field_tag :content , nil , placeholder: "New Comment" , id: "text_field_comment" , required: true %>
-	<br>
-	<%= submit_tag 'Comment' %>
-	<% end %>
-</div>
-
-
 <div id ="comments<%= @post.id %>">
 <% @comments.each do |comment| %>
 	<%= render 'eachcomment' , :comment => comment %>
 <% end %>
+</div>
+
+<div>	
+	<%= form_tag url_for(controller: 'home', action: 'create_comment_remote' , post_id: @post.id),  html: { multipart: true } , remote: true  do %>
+	<div class="comment-post"><%= text_field_tag :content , nil , placeholder: "New Comment" , id: "text_field_comment" , required: true %></div>
+	<% end %>
 </div>
 </div>

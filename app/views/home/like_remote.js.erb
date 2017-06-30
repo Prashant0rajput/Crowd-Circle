@@ -1,6 +1,35 @@
 
-if($('#post_'+<%= @post_id_like %>).text()==='Like'){
-	$('#post_'+<%= @post_id_like %>).text("Unlike");
+if($('#post_'+<%= @post_id_like %>).text()==='like'){
+	$('#post_'+<%= @post_id_like %>).text('unlike');
+	$('#post_'+<%= @post_id_like %>).css("color", "red");
+	$('#post_'+<%= @post_id_like %>).removeClass("fa fa-star-o");
+	$('#post_'+<%= @post_id_like %>).addClass("fa fa-star");
+
 }else{
-	$('#post_'+<%= @post_id_like %>).text("Like");
+	$('#post_'+<%= @post_id_like %>).text('like');
+	$('#post_'+<%= @post_id_like %>).removeAttr("style");
+	$('#post_'+<%= @post_id_like %>).removeClass("fa fa-star");
+	$('#post_'+<%= @post_id_like %>).addClass("fa fa-star-o");
 }
+// $(function() { 
+//    var like = '#post_'+<%= @post_id_like %>;
+//        if like.class() === 'fa fa-star-o'
+//              like.class() = 'fa fa-star';       	
+//        else
+//            like.class() = 'fa fa-star-o';
+// });
+
+// // Favorite Button - Heart
+// $('.favme').click(function() {
+//   $(this).toggleClass('active');
+// });
+
+// /* when a user clicks, toggle the 'is-animating' class */
+// $(".favme").on('click touchstart', function(){
+//   $(this).toggleClass('is_animating');
+// });
+
+// /*when the animation is over, remove the class*/
+// $(".favme").on('animationend', function(){
+//   $(this).toggleClass('is_animating');
+// });

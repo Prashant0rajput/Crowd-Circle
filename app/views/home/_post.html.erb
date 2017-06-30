@@ -1,13 +1,13 @@
 <%if post %>  
 <div class="row">
-    <div class="col s12 m7">
+    <div class="col s12 m8">
         <div class="card z-depth-2">
         <div class="card-action">
-        <a href ="profile/<%= user.id %>" >
+        <a href ="profile/<%= user.name%>/<%= user.id%>" >
         <div class="profile_pic">
-       <%= image_tag user.profileImage %>
+       <span><%= image_tag user.profileImage %></span>
+       <span id="postname"><%= user.name %></span>
         </div>
-        <p><%= user.name %></p>
         </a>
         </div>
           <% if post.image.present? %>
@@ -20,9 +20,9 @@
             </div>
             <div class="card-action">
                  <% if post.likes.where(user_id: current_user.id).length > 0 %>
-                    <%= link_to "UnLike", url_for(controller: :home, action: :like_remote, post_id: post.id), method: :post, id: "post_#{post.id}" , remote: true %>
+                   <%= link_to "unlike", url_for(controller: :home, action: :like_remote, post_id: post.id),method: :post, id: "post_#{post.id}" , remote: true ,:class =>"fa fa-star"  %>
                  <% else %>
-                    <%= link_to "Like", url_for(controller: :home, action: :like_remote, post_id: post.id), method: :post, id: "post_#{post.id}" , remote: true %>
+                    <%= link_to "like", url_for(controller: :home, action: :like_remote, post_id: post.id), method: :post, id: "post_#{post.id}" , remote: true  ,:class =>"fa fa-star-o"%>
                  <% end %>
                  <%= link_to "comment", url_for(controller: :home , action: :comment_remote , post_id: post.id) , method: :post , remote: true %>
             </div>

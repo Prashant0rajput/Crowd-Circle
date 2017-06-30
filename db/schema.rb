@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610150835) do
+ActiveRecord::Schema.define(version: 20170619085904) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170610150835) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "coverImage"
   end
 
 end
