@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  get '*unmatched_route', to: 'application#render_not_found'
+
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
 
