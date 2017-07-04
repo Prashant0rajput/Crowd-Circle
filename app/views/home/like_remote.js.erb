@@ -1,7 +1,6 @@
 
 if($('#post_'+<%= @post_id_like %>).text()==='like'){
-	$('#post_'+<%= @post_id_like %>).text('unlike');
-	$('#post_'+<%= @post_id_like %>).css("color", "red");
+	$('#post_'+<%= @post_id_like %>).text('liked');
 	$('#post_'+<%= @post_id_like %>).removeClass("fa fa-star-o");
 	$('#post_'+<%= @post_id_like %>).addClass("fa fa-star");
 

@@ -1,6 +1,11 @@
 
 if($('#follow_'+<%= @followee_id %>).text()==='follow'){
-	$('#follow_'+<%= @followee_id %>).text("unfollow");
+	$('#follow_'+<%= @followee_id %>).text('following');
+	$('#follow_'+<%= @followee_id %>).removeClass("follow-btn1");
+    $('#follow_'+<%= @followee_id %>).addClass("follow-btn2");
 }else{
 	$('#follow_'+<%= @followee_id %>).text("follow");
+	$('#follow_'+<%= @followee_id %>).removeAttr("style");
+	$('#follow_'+<%= @followee_id %>).removeClass("follow-btn2");
+	$('#follow_'+<%= @followee_id %>).addClass("follow-btn1");
 }

@@ -24,11 +24,13 @@
 $(document).ready(function(){
       $('.parallax').parallax();
       $('.dropdown-button').width(200);
+      $('#userDetails').width(44);
+      $('.dropdown-button').css("cursor","pointer");
+      $('.material-icons').css("cursor","pointer");
       $('.carousel.carousel-slider').carousel({fullWidth: true});
       $('.materialboxed').materialbox();
       $('.slider').slider();
-      $('.slides').height(500);
-      $('.slider').height(525);
+      $('.slides').height(485);
       $('#myBtn').on('click', function() { $('#myForm').submit(); });
     
 
