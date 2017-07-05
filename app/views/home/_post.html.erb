@@ -1,6 +1,4 @@
 <%if post %>  
-<div class="row">
-    <div class="col s12 m8">
         <div class="card z-depth-2">
         <div class="card-action">
         <a href ="profile/<%= user.name%>/<%= user.id%>" >
@@ -16,11 +14,11 @@
             </div>
             <%end%>
             <div class="card-content">
-              <p><%= post.content %></p>
+              <p id="post-content"><%= post.content %></p>
             </div>
             <div class="card-action">
                  <% if post.likes.where(user_id: current_user.id).length > 0 %>
-                   <%= link_to "unlike", url_for(controller: :home, action: :like_remote, post_id: post.id),method: :post, id: "post_#{post.id}" , remote: true ,:class =>"fa fa-star"  %>
+                   <%= link_to "liked", url_for(controller: :home, action: :like_remote, post_id: post.id),method: :post, id: "post_#{post.id}" , remote: true ,:class =>"fa fa-star"  %>
                  <% else %>
                     <%= link_to "like", url_for(controller: :home, action: :like_remote, post_id: post.id), method: :post, id: "post_#{post.id}" , remote: true  ,:class =>"fa fa-star-o"%>
                  <% end %>
@@ -31,5 +29,3 @@
       <div id="comment<%= post.id %>">
      </div>
     </div>
-</div>   
-</div>

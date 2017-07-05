@@ -4,7 +4,7 @@
  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin Slab" />
  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"><meta name="viewport" content="width=device-width; initial-scale=1.0">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <title>Crowdcircle</title>
@@ -18,8 +18,8 @@
 <% if current_user %>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to "One"%></li>
-   <li><%= link_to "Two"%></li>
+  <li><a href = "/profile/<%= current_user.name %>/<%= current_user.id%>">profile</a></li>
+   <li><%= link_to "setting"%></li>
   <li class="divider"></li>
   <li><%= link_to "Logout" , signout_path , id: "sign_out"%></li>
 </ul>
@@ -29,15 +29,17 @@
   </div>
   <div class="brand-logo"><a href="#!"><p>CrowdCircle</p></a></div>
   <ul class="right hide-on-med-and-down">
-  <li id="userDetails">
+       <li>
+     <i class="material-icons">notifications</i>
+     </li>
+
+  <li id="userDetails" class="dropdown-button" href="#!" data-activates="dropdown1">
    <% if current_user.profileImage %>
-      <div class="profile_pic"><a href="/profile/<%= current_user.name %>/<%= current_user.id%>"><img src=<%= current_user.profileImage %>></a></div>
+      <div class="profile_pic"><img src=<%= current_user.profileImage %>></div>
    <%else%>
-      <div class="profile_pic"><a href="/profile/<%= current_user.name %>/<%= current_user.id%>"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a></div>
+      <div class="profile_pic"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></div>
    <%end%>
   </li>
-  <li><a class="dropdown-button down" href="#!" data-activates="dropdown1"><i class="material-icons down">       
-     arrow_drop_down</i></a></li>
   </ul>
 </header>
 

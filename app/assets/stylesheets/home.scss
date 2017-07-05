@@ -107,6 +107,21 @@ main {
 	.add {
 		display: none !important;
 	}
+
+	.who-to-follow{
+	display:none;
+	}
+	.local-foot{
+	display:none;
+	}
+	.container1{
+	display:none;
+	}
+	.posts{
+	width:100%;
+	margin-left:5px;
+	margin-right:5px;
+	}
 }
 
 @media screen and (min-width: 600px) {

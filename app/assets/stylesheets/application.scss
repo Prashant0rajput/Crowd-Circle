@@ -57,6 +57,15 @@ header {
 	width:40px;
 	border-radius:100%;
 }
+.profile-pic{
+	margin-right:5px;
+	display:flex;
+	align-items:center;
+}
+.profile-pic img{
+	width:50px;
+	border-radius:100%;
+}
 .follow_pic{
 	display:flex;
 }
@@ -65,20 +74,27 @@ header {
 	border-radius:100%;
 }
 .container1{
-    width: 17%;
+    width: 20%;
     margin-left:2px;
     margin-top:65px;
 	border:1px solid #e9e9f3;
 	height:588px;
 	position:fixed;
 	left:83%;
+	background-color:white;
 }
 .right{
 	display:flex;
+	align-items:center;
+}
+.material-icons{
+	color:white;
+	font-size:34px;
+	margin-right:10px;
 }
 
 .brand-logo{
-	font-family: Amaranth;
+	font-family: Nunito;
 	font-size:35px;
 }
 a{
@@ -94,7 +110,7 @@ a{
 
 #brand-logo1{
     font-family: Amaranth;
-	margin-left:24%;
+	margin-left:300px;
 	font-size:35px;
 }
 #nav-wrapper1{
@@ -106,14 +122,13 @@ a{
 	display:flex;
 	flex-direction:column;
 }
-.logfooter{
-    height:10px;
-	width:100%;
-	background-color:#fff;
-}
 .foot{
 	display:flex;
 	justify-content:space-around;
+	align-items:center;
+	height:30px;
+	width:100%;
+	background-color:#fff;
 }
 .foot p{
 	color: grey;
@@ -197,11 +212,11 @@ a{
 }
 .uploadform{
     background-color:white;
-    margin-left:0px;
     border:1px solid #e9e9f3;
     border-radius:4px;
 	margin-top:73px;
-	width:65.6%;
+	margin-left:420px;
+	width:55%;
 	display:flex;
 	flex-direction:column;
 }
@@ -258,19 +273,26 @@ span{
 }
 #postname{
 	color:black;
+	font-weight:bold;
 	font-family: Nunito;
+}
+#post-content{
+	color:black;
+	font-size:15px;
+	font-family: Open Sans;
 }
 input#text_field_comment{
 	margin:0px;
 }
 span.comment-user{
+    color:black;
     margin:0px 5px 0px 0px;
 	font-family: Nunito;
 }
 span.comment-content{
     padding:3px opx 3px 8px;
 	font-family:Open Sans;
-	font-size:12px;
+	font-size:14px;
 	color:rgb(97,97,97);
 }
 
@@ -279,6 +301,9 @@ span.comment-content{
 }
 .card-action a{
 	padding:12px 0px 12px 8px;
+}
+.Follow {
+	margin-top:7px;
 }
 .Follow .card-action{
 	height:50px;
@@ -290,4 +315,187 @@ span.comment-content{
 
 .card .card-content{
 	padding: 0px 0px 3px 8px;
+}
+.extra-content{
+    position:fixed;
+    width:27%;
+    margin-top:73px;
+    margin-left:55px;
+	display:flex;
+	flex-direction:column;
+}
+.who-to-follow{
+	height:300px;
+	background-color:white;
+	border:1px solid #e9e9f3;
+}
+.local-foot{
+    margin-top:15px;
+	height:120px;
+	width:100%;
+	background-color:white;
+	border:1px solid #e9e9f3;
+	word-wrap: break-word;
+}
+.col{
+	margin-left:40px;
+}
+.posts{
+	width:55%;
+	margin-left:420px;
+	margin-top:15px;
+}
+a.refresh{
+	color:#26a69a;
+	margin-left:20px;
+	font-family:Open Sans;
+	cursor:pointer;
+
+}
+a.see-all{
+	color:#26a69a;
+	margin-left:20px;
+	font-family:Open Sans;
+	cursor:pointer;
+}
+.trend-follow{
+	display:flex;
+	align-items:baseline;
+}
+#to-follow{
+    margin-left:13px;
+    font-weight:bold;
+	font-family:Nunito;
+	font-size:20px;
+}
+.follow-btn1{
+    margin-left:20px;
+	width:100px;
+	height:30px;
+	padding-left:27px;
+	padding-top:4px;
+	color:#26a69a;
+	border:1px solid #26a69a;
+	border-radius:15px;
+	font-weight:bold;
+	font-family:Nunito;
+}
+.follow-btn2{
+    margin-left:20px;
+	width:100px;
+	padding-left:18px;
+	padding-top:4px;
+	height:30px;
+	color:white;
+	background-color:#26a69a;
+	border:1px solid #26a69a;
+	border-radius:15px;
+	font-weight:bold;
+	font-family:Nunito;
+}
+#follow-name-trend a{
+	font-family: Nunito;
+	font-size:16px;
+	color:rgb(97,97,97);
+	margin-bottom:10px;
+}
+hr{
+	margin-left:5px;
+	margin-right:5px;
+	color:#26a69a;
+}
+hr#hr{
+	margin-top:10px;
+}
+a.people-know{
+    padding-left:50px;
+    padding-top:20px;
+	color:#26a69a;
+	font-weight:bold;
+	font-family:Nunito;
+	cursor:pointer;
+}
+.people-know1{
+	margin-left:30px;
+	margin-top:15px;
+}
+span.comment-user{
+	font-family:Nunito;
+}
+div.local-foot div div{
+    color:#616161;
+	font-family:Open Sans;
+	font-size:12px;
+}
+div.local-foot{
+	display:flex;
+	flex-direction:column;
+}
+div.one{
+	display:flex;
+	margin-top:10px;
+    justify-content:space-around;
+}
+div.two{
+	display:flex;
+	margin-top:10px;
+	justify-content:space-around;
+	
+}
+a.Ad{
+    padding-left:70px;
+	color:#26a69a;
+	font-weight:bold;
+	font-family:Nunito;
+	cursor:pointer;
+}
+#Add{
+	margin-top:15px;
+}
+li#userDetails.dropdown-button{
+	width:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+    .col{
+    margin-left:0px;
+    }
+	div#posts.posts{
+	width:96%;
+	margin-left:6.7px;
+	}
+	div.uploadform{
+	width:96%;
+	margin-left:6.7px;
+	}
+	.one{
+	display:none;
+	}
+	.local-foot{
+	display:none;
+	}
+	.extra-content{
+	display:none;
+	}
 }
