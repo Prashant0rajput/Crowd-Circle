@@ -66,9 +66,34 @@ $(document).ready(function(){
                   }
             });
 
+          getLocation();
 
     });
 
+function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition,showError);
+    }
+}
+    function showPosition(position) {
+      sessionStorage.setItem('lat',position.coords.latitude);
+       sessionStorage.setItem('long',position.coords.longitude);
+     console.log("Lat: "+position.coords.latitude);
+     console.log("Long: "+position.coords.longitude);
+}
+function showError(error) {
+  console.log("showError: "+error.code+" "+error.PERMISSION_DENIED);
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            break;
+        case error.POSITION_UNAVAILABLE:
+            break;
+        case error.TIMEOUT:
+            break;
+        case error.UNKNOWN_ERROR:
+            break;
+    }
+}
 
 
 // (function($) {

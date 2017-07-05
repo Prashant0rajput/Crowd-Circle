@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619085904) do
+ActiveRecord::Schema.define(version: 20170703073551) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(version: 20170619085904) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.float    "lat"
+    t.float    "long"
+    t.string   "ip_address"
+    t.string   "video_meta"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
@@ -82,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170619085904) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "coverImage"
+    t.integer  "band"
   end
 
 end

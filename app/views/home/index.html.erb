@@ -11,6 +11,7 @@
     <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
   <%= f.file_field :image  , accept: 'image/png,image/gif,image/jpeg' , id: "file_field" %>
   </span>
+  <%= f.file_field :video %>
   <div class="myBtn"><%= submit_tag 'post', :class =>"waves-effect waves-light btn" %></div>
   <%end%>
   </div>
