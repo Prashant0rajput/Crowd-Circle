@@ -1,6 +1,7 @@
 $("#posts").prepend("<%= escape_javascript(render 'post', :post => @post , :user => @user) %>");
 $("#text_field").val("");
 $("#file_field").val(null);
+$("#file_field_video").val(null);
 
      var div = document.getElementById("showImage");
                   if(div.hasChildNodes()){

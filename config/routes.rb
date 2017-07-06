@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ get 'sessions/create'
 
   get 'sessions/destroy'
 
@@ -23,5 +24,4 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
 
   root to: "home#show"
-
 end
