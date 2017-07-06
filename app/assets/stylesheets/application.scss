@@ -33,7 +33,7 @@ body{
 header {
   position: fixed;
   z-index: 1000;
-  background-color: rgba(33,150,243,0.90);
+  background-color:rgba(0,170,190,0.90);
   width: 100%;
   height: 65px;
   top: 0;
@@ -74,13 +74,13 @@ header {
 	border-radius:100%;
 }
 .container1{
-    width: 20%;
+    width: 22%;
     margin-left:2px;
     margin-top:65px;
 	border:1px solid #e9e9f3;
 	height:588px;
 	position:fixed;
-	left:83%;
+	left:81%;
 	background-color:white;
 }
 .right{
@@ -109,12 +109,12 @@ a{
 }
 
 #brand-logo1{
-    font-family: Amaranth;
+    font-family:Nunito;
 	margin-left:300px;
 	font-size:35px;
 }
 #nav-wrapper1{
-	background-color:#2196F3;
+	background-color:rgba(0,170,190,0.90);
 	display: relative;
 	height:60px;
 }
@@ -216,7 +216,7 @@ a{
     border-radius:4px;
 	margin-top:73px;
 	margin-left:420px;
-	width:55%;
+	width:58%;
 	display:flex;
 	flex-direction:column;
 }
@@ -341,7 +341,7 @@ span.comment-content{
 	margin-left:40px;
 }
 .posts{
-	width:55%;
+	width:58%;
 	margin-left:420px;
 	margin-top:15px;
 }
@@ -452,9 +452,117 @@ a.Ad{
 #Add{
 	margin-top:15px;
 }
-li#userDetails.dropdown-button{
-	width:20px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main {
+	padding-top: 64px;
+	padding-bottom: 300px;
+	
+	.jumbo {
+	    border:1px solid #e9e9f3;
+		width: 100%;
+		height: 400px;
+		background-size: cover;
+	}
+	
+	.icons {
+		display: flex;
+		justify-content: space-between;
+		
+		.big-icon img{
+			width: 180px;
+			height: 180px;
+			background-size: 140%;
+			border-radius: 50%;
+			border: 2px solid white;
+			margin-top: -90px;
+		}
+		
+		.rate {
+			width: 125px;
+			display: flex;
+			justify-content: space-between;
+			order: -1;
+			
+			.star-btn {
+				margin-top: -27.5px;
+				
+				i {
+					font-size: 26px;
+				}
+			}
+			
+			.like-btn {
+				margin-top: -27.5px;
+				
+				i {
+					font-size: 22px;
+				}
+			}
+		}
+		
+		.add {
+			width: 125px;
+			display: flex;
+			justify-content: flex-end;
+			
+			.add-btn {
+				margin-top: -27.5px;
+				
+				i {
+					font-size: 28px;
+				}
+			}
+		}
+	}
+	
+	.details {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 50px;
+		
+		h3 {
+			color: #212121;
+			font-size: 28px;
+			margin-top: 15px;
+		}
+		
+		p {
+			color: #727272;
+			margin-top: 0px;
+		}
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

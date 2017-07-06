@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -19,20 +18,18 @@ ActiveRecord::Schema.define(version: 20170619085904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "content"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "follow_mappings", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followee_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["followee_id"], name: "index_follow_mappings_on_followee_id"
+    t.index ["follower_id"], name: "index_follow_mappings_on_follower_id"
   end
-
-  add_index "follow_mappings", ["followee_id"], name: "index_follow_mappings_on_followee_id"
-  add_index "follow_mappings", ["follower_id"], name: "index_follow_mappings_on_follower_id"
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
@@ -47,10 +44,9 @@ ActiveRecord::Schema.define(version: 20170619085904) do
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
-
-  add_index "likes", ["post_id"], name: "index_likes_on_post_id"
-  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.integer  "likes"
@@ -62,9 +58,8 @@ ActiveRecord::Schema.define(version: 20170619085904) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

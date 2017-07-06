@@ -18,14 +18,14 @@
 <% if current_user %>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href = "/profile/<%= current_user.name %>/<%= current_user.id%>">profile</a></li>
+  <li><a data-turbolinks='false' href = "/profile/<%= current_user.name %>/<%= current_user.id%>">profile</a></li>
    <li><%= link_to "setting"%></li>
   <li class="divider"></li>
-  <li><%= link_to "Logout" , signout_path , id: "sign_out"%></li>
+  <li><a data-turbolinks='false' id = "sign_out" href="/signout">Logout</a></li>
 </ul>
 <header class = "z-depth-3">
   <div class="actions">
-    <%= link_to raw('<i class="fa fa-home fa-2x" aria-hidden="true"></i>'), '/' %>
+    <a data-turbolinks='false' href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
   </div>
   <div class="brand-logo"><a href="#!"><p>CrowdCircle</p></a></div>
   <ul class="right hide-on-med-and-down">
@@ -43,9 +43,6 @@
   </ul>
 </header>
 
- 
-
-</nav>
 <%= yield %>
 <% else %>
 

@@ -11,20 +11,18 @@
 // about supported directives.
 //
 //= require jquery
+//= require turbolinks
+//= require materialize-sprockets
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require turbolinks
 //= require_tree .
-//= require materialize-sprockets
 //= require materialize/extras/nouislider
-
-
 
 
 $(document).ready(function(){
       $('.parallax').parallax();
       $('.dropdown-button').width(200);
-      $('#userDetails').width(44);
+      $('#userDetails').width(42);
       $('.dropdown-button').css("cursor","pointer");
       $('.material-icons').css("cursor","pointer");
       $('.carousel.carousel-slider').carousel({fullWidth: true});
@@ -58,21 +56,18 @@ $(document).ready(function(){
         // read the image file as a data URL.
         reader.readAsDataURL(this.files[0]);
 
-            });
-
+        });      
+    
             $("#deleteImage").on('click' , function (){
                         $("#deleteImage").css('display','none');
                         var div = document.getElementById("showImage");
                         if(div.hasChildNodes()){
                         div.removeChild(div.childNodes[0]);
                   }
-            });
+      });
 
 
-    });
-
-
-
+});
 // (function($) {
 	
 // 	$(window).scroll(function() {
