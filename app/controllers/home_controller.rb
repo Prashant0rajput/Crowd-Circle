@@ -11,15 +11,19 @@ class HomeController < ApplicationController
   def create_post_remote
       @post = current_user.posts.create(post_params)
       @user = User.find(@post.user_id)
+      if(@post.video.present?)
+        return redirect_to '/'
+      else
   		respond_to do |format|
       format.js{
           
       }
     end
   end
+  end
 
   def post_params
-    params.require(:post).permit(:content , :image)
+    params.require(:post).permit(:content , :image , :video).merge(ip_address: request.remote_ip)
   end
 
 

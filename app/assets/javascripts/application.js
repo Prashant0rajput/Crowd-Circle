@@ -64,10 +64,60 @@ $(document).ready(function(){
                         if(div.hasChildNodes()){
                         div.removeChild(div.childNodes[0]);
                   }
+
       });
+          setVideos();  
+
+function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition,showError);
+    }
+}
+    function showPosition(position) {
+      sessionStorage.setItem('lat',position.coords.latitude);
+       sessionStorage.setItem('long',position.coords.longitude);
+     console.log("Lat: "+position.coords.latitude);
+     console.log("Long: "+position.coords.longitude);
+}
+function showError(error) {
+  console.log("showError: "+error.code+" "+error.PERMISSION_DENIED);
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            break;
+        case error.POSITION_UNAVAILABLE:
+            break;
+        case error.TIMEOUT:
+            break;
+        case error.UNKNOWN_ERROR:
+            break;
+    }
+}
+
+function setVideos(){
+   var media = $('video').not("[autoplay='autoplay']");
+            var tolerancePixel = 300;
+            function checkMedia(){
+                // Get current browser top and bottom
+                var scrollTop = $(window).scrollTop() + tolerancePixel;
+                var scrollBottom = $(window).scrollTop() + $(window).height() - tolerancePixel;
+
+                media.each(function(index, el) {
+                    var yTopMedia = $(this).offset().top;
+                    var yBottomMedia = $(this).height() + yTopMedia;
+
+                    if(scrollTop < yBottomMedia && scrollBottom > yTopMedia){ //view explaination in `In brief` section above
+                        $(this).get(0).play();
+                    } else {
+                        $(this).get(0).pause();
+                    }
+                });
+            }
+            $(document).on('scroll', checkMedia);
+}
 
 
 });
+
 // (function($) {
 	
 // 	$(window).scroll(function() {

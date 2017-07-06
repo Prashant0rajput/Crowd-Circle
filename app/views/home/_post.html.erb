@@ -10,7 +10,12 @@
         </div>
           <% if post.image.present? %>
             <div class="card-image">
-              <%= image_tag post.image.url(:medium)  %> 
+              <%= image_tag post.image_url(:main).to_s  %> 
+            </div>
+            <%end%>
+             <% if post.video.present? %>
+            <div class="card-image">
+              <%= video_tag post.video_url.to_s , size: "542x302" , controls: true , autobuffer: true , loop: true , autoplay: false , id: "video#{post.id}" %> 
             </div>
             <%end%>
             <div class="card-content">
