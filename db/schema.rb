@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703073551) do
+ActiveRecord::Schema.define(version: 20170706075415) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -55,17 +55,14 @@ ActiveRecord::Schema.define(version: 20170703073551) do
   create_table "posts", force: :cascade do |t|
     t.integer  "likes"
     t.string   "content"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.float    "lat"
     t.float    "long"
     t.string   "ip_address"
-    t.string   "video_meta"
+    t.string   "image"
+    t.string   "video"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

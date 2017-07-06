@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content , :image).merge(ip_address: request.remote_ip)
+    params.require(:post).permit(:content , :image , :video).merge(ip_address: request.remote_ip)
   end
 
 

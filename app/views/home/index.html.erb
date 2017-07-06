@@ -51,10 +51,13 @@
   <div class="textinput"><%= f.text_field :content , placeholder: "New Post" , id: "text_field" , required: true%></div>
   <div class="upload">
   <span class="btn btn-warning btn-file">
-    <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
-  <%= f.file_field :image  , accept: 'image/png,image/gif,image/jpeg' , id: "file_field" %>
+    <i class="material-icons" aria-hidden="true">videocam</i>
+  <%= f.file_field :video , id: "file_field_video" %>
   </span>
-  <%= f.file_field :video %>
+  <span class="btn btn-warning btn-file">
+    <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
+  <%= f.file_field :image , accept: 'image/png,image/gif,image/jpeg' , id: "file_field" %>
+  </span>
   <div class="myBtn"><%= submit_tag 'post', :class =>"waves-effect waves-light btn" %></div>
   <%end%>
   </div>

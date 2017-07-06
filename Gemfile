@@ -31,13 +31,14 @@ gem "omniauth-google-oauth2"
 
 gem 'omniauth-facebook'
 
-gem "paperclip", "~> 5.0.0"
-
 gem 'remotipart', '~> 1.2'
 
 gem 'geocoder'
 
-gem 'paperclip-av-transcoder'
+gem 'carrierwave', '~> 1.0'
+
+gem 'rmagick'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
