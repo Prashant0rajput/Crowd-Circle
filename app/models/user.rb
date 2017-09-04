@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
-	has_many :posts
-  has_many :likes
-  has_many :comments
+	has_many :notifications, foreign_key: :recipient_id
+  has_many :posts,dependent: :destroy
+  has_many :likes,dependent: :destroy
+  has_many :comments,dependent: :destroy
+  has_many :chatroom_users,dependent: :destroy
+  has_many :chatrooms,through: :chatroom_users
+  has_many :messages,dependent: :destroy
 
   has_many :follower_mappings, class_name: 'FollowMapping', foreign_key: 'followee_id'
   has_many :followee_mappings, class_name: 'FollowMapping', foreign_key: 'follower_id'

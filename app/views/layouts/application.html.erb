@@ -4,13 +4,11 @@
  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin Slab" />
  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nunito" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"><meta name="viewport" content="width=device-width; initial-scale=1.0">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"><meta name="viewport" content="width=device-width , initial-scale=1.0">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <title>Crowdcircle</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,19 +16,30 @@
 <% if current_user %>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><a data-turbolinks='false' href = "/profile/<%= current_user.name %>/<%= current_user.id%>">profile</a></li>
+  <li><a data-turbolinks='false' href ="/profile/<%= current_user.id%>" >Profile</a></li>
    <li><%= link_to "setting"%></li>
   <li class="divider"></li>
   <li><a data-turbolinks='false' id = "sign_out" href="/signout">Logout</a></li>
 </ul>
 <header class = "z-depth-3">
-  <div class="actions">
+  <div class="actions" id="home-icon">
     <a data-turbolinks='false' href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
   </div>
-  <div class="brand-logo"><a href="#!"><p>CrowdCircle</p></a></div>
+  <div class="brand-logo">
+    <%= form_tag('/search', local: true, method: :get) do %>
+    <%= text_field_tag(:q, nil, data: { behavior: 'autocomplete' }, placeholder: 'Search') %>
+    <% end %>
+  </div>
   <ul class="right hide-on-med-and-down">
        <li>
-     <i class="material-icons">notifications</i>
+     <div class="notification">
+    <svg viewbox="-10 0 35 35">
+      <path class="notification--bell" d="M14 12v1H0v-1l0.73-0.58c0.77-0.77 0.81-3.55 1.19-4.42 0.77-3.77 4.08-5 4.08-5 0-0.55 0.45-1 1-1s1 0.45 1 1c0 0 3.39 1.23 4.16 5 0.38 1.88 0.42 3.66 1.19 4.42l0.66 0.58z"></path> 
+      <path class="notification--bellClapper" d="M7 15.7c1.11 0 2-0.89 2-2H5c0 1.11 0.89 2 2 2z"></path>
+    </svg>
+    <span class="notification--num">5</span>
+  </div>
+  
      </li>
 
   <li id="userDetails" class="dropdown-button" href="#!" data-activates="dropdown1">
@@ -55,3 +64,5 @@
 </script>
 </body>
 </html>
+
+

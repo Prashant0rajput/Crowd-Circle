@@ -1,0 +1,79 @@
+// Place all the styles related to the direct_messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+li#links a{
+	color:black;
+}
+
+
+#messages {
+  max-height: 450px;
+  overflow-y: auto;
+  .avatar {
+    margin: 0.5rem;
+  }
+}
+#body{
+  height:60px;
+}
+div#all-messages{
+  margin-top:4px;
+}
+
+.msg_a{
+  font-family:Nunito;
+  position:relative;
+  background:#EEF2E7;
+  padding:10px;
+  padding-top:0px;
+  color:black;
+  padding-bottom:0px;
+  align-items:center;
+  min-height:2px;
+  margin-bottom:8px;
+  margin-right:50px;
+  margin-left:14px;
+  border-radius:5px;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+.msg_a:before{
+  content:"";
+  position:absolute;
+  width:0px;
+  height:0px;
+  border: 10px solid;
+  border-color: transparent #EEF2E7 transparent transparent;
+  left:-20px;
+  top:7px;
+}
+
+
+.msg_b{
+  font-family:Nunito;
+  background:#69bdb6;
+  padding:10px;
+  color:white;
+  padding-top:0px;
+  padding-bottom:0px;
+  align-items:center;
+  min-height:2px;
+  margin-bottom:8px;
+  position:relative;
+  margin-left:50px;
+  margin-right:14px;
+  border-radius:5px;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+.msg_b:after{
+  content:"";
+  position:absolute;
+  width:0px;
+  height:0px;
+  border: 10px solid;
+  border-color: transparent transparent transparent #69bdb6;
+  right:-20px;
+  top:7px;
+}

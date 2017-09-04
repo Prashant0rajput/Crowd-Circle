@@ -39,6 +39,13 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'rmagick'
 
+gem 'jquery-turbolinks'
+
+gem 'rails_emoji_picker'
+
+gem 'puma'
+
+gem 'ransack'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

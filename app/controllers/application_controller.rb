@@ -6,10 +6,9 @@ skip_before_filter :verify_authenticity_token
   helper_method :current_user
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if cookies.signed[:user_id]
+    @current_user ||= User.find(cookies.signed[:user_id])
+    end 
   end
 
-  def render_not_found
-  	render 'layouts/page_not_found' , :status => 404
-  end
 end

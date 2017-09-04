@@ -1,0 +1,15 @@
+   <% (User.all - [current_user]).each do |user| %>
+   <div class="profile_pic">
+     <span><%= image_tag user.profileImage %></span>
+     <span id="follow-name"><a href ="/profile/<%= user.id%>" ><%= user.name %></a></span>
+      </div>
+   <% end %>
+
+<!-- <% @users.each do |user| %>
+         <a data-turbolinks='false' href ="profile/<%= user.name %>/<%= user.id%>" >
+         <div class="profile_pic">
+         <span><%= image_tag user.profileImage %></span>
+        <span id="follow-name"><%= user.name %></span>
+         </div>
+         </a>
+      <%end%>-->

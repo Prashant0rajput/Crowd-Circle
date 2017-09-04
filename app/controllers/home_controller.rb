@@ -7,6 +7,15 @@ class HomeController < ApplicationController
   end
   end
 
+  def search
+    @users = User.ransack(name_cont: params[:q]).result(distinct: true)
+    respond_to do |format|
+      format.html {}
+      format.json {
+        @users = @users.limit(7)
+      }
+    end
+  end
 
   def create_post_remote
       @post = current_user.posts.create(post_params)
@@ -33,7 +42,11 @@ class HomeController < ApplicationController
     if like
       like.destroy
     else
-      current_user.likes.create(post_id: @post_id_like)
+      @like = current_user.likes.create(post_id: @post_id_like)
+      @post = Post.find_by_id(@post_id_like)
+      (@post.users.uniq - [current_user]).each do |user|
+        Notification.create(recipient: user, actor: current_user, action: "liked" , notifiable: @like)
+      end 
     end
     respond_to do |format|
       format.js
@@ -109,7 +122,7 @@ class HomeController < ApplicationController
   end 
 
   def profile
-      @user = User.find_by_name_and_id(params[:username],params[:id])
+      @user = User.find_by_id(params[:id])
       @users = User.where.not(id: current_user.id)
 
   end

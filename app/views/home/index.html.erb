@@ -12,7 +12,7 @@
         <div class="profile-pic">
         <span><%= image_tag user.profileImage %></span>
        <span id="follow-name-trend">
-       <a data-turbolinks='false' href ="profile/<%= user.name %>/<%= user.id%>" ><%= user.name %></a></span>
+       <a data-turbolinks='false' href ="/profile/<%= user.id%>" ><%= user.name %></a></span>
         <% if  FollowMapping.where(follower_id: current_user.id , followee_id: user.id).length > 0  %>
         <%= link_to "following" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true , :class => "follow-btn2" %>
         <% else %>
@@ -75,19 +75,7 @@
   </div>
 <div class = "container1 z-depth-2">
  <div class="Follow">
-      <% @users.each do |user| %>
-        <a data-turbolinks='false' href ="profile/<%= user.name %>/<%= user.id%>" >
-        <div class="profile_pic">
-        <span><%= image_tag user.profileImage %></span>
-       <span id="follow-name"><%= user.name %></span>
-        </div>
-        </a>
-<!--       <% if  FollowMapping.where(follower_id: current_user.id , followee_id: user.id).length > 0  %>
-        <%= link_to "unfollow" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true , :style => 'color: red;' %>
-        <% else %>
-        <%= link_to "follow" , url_for(controller: :home , action: :follow_remote , followee_id: user.id) , method: :post , id: "follow_#{user.id}" , remote: true  , :style => 'color: red;' %>
-        <% end %>  -->
-      <%end%>
+    <%= render :partial => 'direct_messages/chat_room' %>
   </div> 
 </div>
 </div>

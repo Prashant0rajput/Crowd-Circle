@@ -6,9 +6,8 @@
 		<div class="big-icon "> 
       <%= image_tag @user.profileImage ,:class => "z-depth-2"%>
     </div>
-		<div class="rate ">
-          <a class="star-btn add-btn btn-floating btn-large waves-effect waves-light blue darken-1 z-depth-2"><i class="material-icons">star</i></a>
-			<a class="like-btn add-btn btn-floating btn-large waves-effect waves-light blue darken-1 z-depth-2"><i class="material-icons">thumb_up</i></a>
+		<div class="rate">
+         <i class="material-icons"><%= link_to '', url_for(controller: :direct_messages,action: :show_remote,id: @user.id),method: :get,remote: true , :class => "star-btn add-btn btn-floating btn-large blue darken-1 z-depth-2 fa fa-comment"%></i>
 		</div>
 		<div class="add ">
 			<a class="add-btn btn-floating btn-large waves-effect waves-light red z-depth-2"><i class="material-icons">add</i></a>
@@ -41,11 +40,6 @@
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-
-
-
-
-
 
 
 

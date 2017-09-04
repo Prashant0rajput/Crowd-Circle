@@ -11,12 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-//= require turbolinks
-//= require materialize-sprockets
 //= require jquery_ujs
-//= require jquery.remotipart
-//= require_tree .
+//= require search.js
+//= require jquery.easy-autocomplete.js
+//= require materialize-sprockets
 //= require materialize/extras/nouislider
+//= require cable
+//= require rails_emoji_picker
+//= require functions
+//= require jquery.remotipart
+//= require turbolinks
+//= require_tree .
+
 
 
 $(document).ready(function(){
@@ -25,7 +31,6 @@ $(document).ready(function(){
       $('#userDetails').width(42);
       $('.dropdown-button').css("cursor","pointer");
       $('.material-icons').css("cursor","pointer");
-      $('.carousel.carousel-slider').carousel({fullWidth: true});
       $('.materialboxed').materialbox();
       $('.slider').slider();
       $('.slides').height(485);
@@ -65,8 +70,7 @@ $(document).ready(function(){
                         div.removeChild(div.childNodes[0]);
                   }
 
-      });
-          setVideos();  
+      }); 
 
 function getLocation() {
       if (navigator.geolocation) {
@@ -114,9 +118,11 @@ function setVideos(){
             }
             $(document).on('scroll', checkMedia);
 }
-
+setVideos(); 
 
 });
+
+
 
 // (function($) {
 	

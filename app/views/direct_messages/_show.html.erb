@@ -1,0 +1,25 @@
+<div class="popup-box chat-popup z-depth-5 " id="<%= @chatroom.id %>">
+  <div class="popup-head">
+    <div class="popup-head-left"><%= @chat_user.name%></div>
+    <div class="popup-head-mid"></div>
+    <div class="popup-head-right"><a href="javascript:close_popup('<%= @chatroom.id %>');">&#10005;</a></div>
+    <div style="clear: both"></div>
+  </div>  
+<div id="messages" data-chat-room-id="<%= @chatroom.id %>">
+ <div id="all-messages">
+  <%@chatroom.messages.each do |message| %>
+  <%= render 'message' , message: message %>
+  <%end%>
+ </div>
+ </div>
+
+
+<%= form_tag '#' , :id => 'new_message' do %>
+   <div id="outer_<%= @chatroom.id %>" data-chat-box-id="<%= @chatroom.id %>">
+    <p class="emoji-picker-container">
+    <%= text_area_tag :body,"", class: 'form-control', data: { emojiable: true,id: @chatroom.id }%>
+    </p>
+    </div>
+    
+  <% end %>  
+ </div>
